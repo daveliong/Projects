@@ -1,10 +1,10 @@
 ﻿
 $ModuleName = "SharePointPnPPowerShellOnline"
-$sPSite = "https://racwanpe.sharepoint.com"
-$SPAdminSite = "https://racwanpe-admin.sharepoint.com"
+$sPSite = "https://davidliong.sharepoint.com/sites/TestITProjects"
+$SPAdminSite = "https://davidliong-admin.sharepoint.com"
 $LogFile = "C:\Temp\RAC_SPFxInstall_Log.txt"
 $csvFile = "C:\temp\AssociatedSites.csv"
-
+$credentials
 
 function LogMessage($message) 
 {
@@ -97,6 +97,8 @@ function ActivateAlertAppToSites()
     
     try
     {
+        $credentials = Get-Credential
+
         ActivateAlertApp $sPSite #Activate alert app on hub site
 
         #Activate alert app for all associated hub sites
@@ -124,7 +126,7 @@ function ActivateAlertApp($siteURL){
     try
     {
          Write-Host "Connecting to hub site: " $siteURL -foreground yellow
-         Connect-PnPOnline -Url $siteURL #-UseWebLogin
+         Connect-PnPOnline -Credentials $credentials -Url $siteURL #-UseWebLogin
          Add-PnPCustomAction -Name "HubOrSiteAlertsApplicationCustomizer" -Title "HubOrSiteAlertsApplicationCustomizer" -ClientSideComponentId 29df5d8b-1d9b-4d32-971c-d66162396ed3 -Location "ClientSideExtension.ApplicationCustomizer" -ClientSideComponentProperties "{}" -Scope Site
 
          $logMsg = "Alert app has been activated for assoicated hub site $siteURL"
@@ -145,5 +147,5 @@ function ActivateAlertApp($siteURL){
 #------ MAIN -------
 #GetSPOPnPVersion 1
 
-GetAssociatedSites $sPSite
+#GetAssociatedSites $sPSite
 ActivateAlertAppToSites
