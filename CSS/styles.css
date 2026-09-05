@@ -66,7 +66,7 @@ p {
   border-radius: 28px;
   background: rgba(255, 255, 255, 0.65);
   box-shadow: 0 24px 60px rgba(93, 69, 31, 0.1);
-  transform: rotate(2deg);
+  transform: translateX(4rem) rotate(2deg);
 }
 
 svg {
@@ -98,5 +98,6 @@ svg {
 
   .illustration {
     width: min(100%, 340px);
+    transform: rotate(2deg);
   }
 }
