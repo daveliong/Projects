@@ -1,11 +1,13 @@
 :root {
-  color-scheme: light;
-  --ink: #1d2939;
-  --muted: #667085;
-  --paper: #fffdf8;
-  --yellow: #f7c948;
-  --orange: #ed8b2f;
-  --line: #eadfca;
+  color-scheme: dark;
+  --ink: #f4f7fb;
+  --muted: #b7c8dc;
+  --paper: #061729;
+  --yellow: #ffdc00;
+  --orange: #5cf3d3;
+  --cyan: #00d5ed;
+  --surface: #0c2340;
+  --line: #1d4e6c;
 }
 
 * {
@@ -20,8 +22,8 @@ body {
   padding: 2rem;
   color: var(--ink);
   background:
-    radial-gradient(circle at 15% 15%, rgba(247, 201, 72, 0.2), transparent 25%),
-    radial-gradient(circle at 85% 80%, rgba(237, 139, 47, 0.14), transparent 28%),
+    radial-gradient(circle at 15% 15%, rgba(0, 213, 237, 0.12), transparent 25%),
+    radial-gradient(circle at 85% 80%, rgba(92, 243, 211, 0.08), transparent 28%),
     var(--paper);
   font-family: Georgia, 'Times New Roman', serif;
 }
@@ -64,8 +66,8 @@ p {
   padding: 1.5rem;
   border: 1px solid var(--line);
   border-radius: 28px;
-  background: rgba(255, 255, 255, 0.65);
-  box-shadow: 0 24px 60px rgba(93, 69, 31, 0.1);
+  background: var(--surface);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
   transform: translateX(4rem) rotate(2deg);
 }
 
@@ -78,7 +80,7 @@ svg {
 .stripe {
   height: 12px;
   margin-top: 1rem;
-  background: repeating-linear-gradient(135deg, var(--ink) 0 16px, var(--yellow) 16px 32px);
+  background: repeating-linear-gradient(135deg, var(--cyan) 0 16px, var(--yellow) 16px 32px);
   border-radius: 999px;
 }
 
